@@ -1,0 +1,11 @@
+header {
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-link {
+    margin-right: 10px;
+}
