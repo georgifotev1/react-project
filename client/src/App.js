@@ -1,11 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Header } from "./components/Header/Header";
+import { Layout } from "./components/Layout/Layout";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-    </BrowserRouter>
+    <>
+      <Layout />
+    </>
   );
 }
 

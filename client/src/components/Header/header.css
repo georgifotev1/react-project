@@ -1,5 +1,18 @@
 header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background: rgba(251, 99, 115, 1);
+    color: white;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.header-logo {
+    text-align: center;
+    color: white;
+    cursor: pointer;
 }
 
 .nav-list {
@@ -7,5 +20,27 @@ header {
 }
 
 .nav-link {
-    margin-right: 10px;
+    margin-right: 15px;
+}
+
+.nav-link a {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+#search {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 16px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#search:focus {
+    outline: none;
 }
