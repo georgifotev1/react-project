@@ -21,7 +21,7 @@ dd {
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul,
-ol{
+ol {
   list-style: none;
 }
 
@@ -66,12 +66,85 @@ select {
   position: relative;
 }
 
+.section {
+  width: 100%;
+  height: calc(100vh - 96px);
+}
+
+.auth-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-section-card {
+  border: 1px solid rgba(251, 99, 115, 1);
+  border-radius: 16px;
+  padding: 20px 40px;
+  text-align: center;
+  background-color: rgba(251, 99, 115, 1);
+  color: white;
+  margin-bottom: 50px;
+}
+.auth-section-card form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.auth-section-card h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.form-element {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-element label {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.form-element input {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 16px;
+  font-size: 1.2rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn {
+  background-color: transparent;
+  padding: 10px 18px;
+  color: white;
+  font-size: 1.4rem;
+  border: 1px solid white;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  color: rgba(251, 99, 115, 1);
+  background-color: white;
+}
+
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
