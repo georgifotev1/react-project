@@ -2,7 +2,7 @@ const authController = require("express").Router();
 const { body, validationResult } = require("express-validator");
 
 const { register, login, logout } = require("../services/userService");
-const { parseError } = require("../util/parser");
+const { parseError } = require("../utils/parser");
 
 authController.post(
   "/register",
