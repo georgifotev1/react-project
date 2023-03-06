@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Home } from "../../sections/Home/Home";
 import { Login } from "../../sections/Login/Login";
 import { Register } from "../../sections/Register/Register";
@@ -15,6 +17,7 @@ export const Layout = () => {
         <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </BrowserRouter>
   );
 };

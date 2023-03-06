@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { handleLogout } from "../../hooks/fetch-data-hooks";
 import "./header.css";
 
 export const Header = () => {
   const logo = "{...}";
+  const navigate = useNavigate();
+
+  const onSubmit = async () => {
+    await handleLogout();
+    navigate("/");
+  };
   return (
     <header className="header">
       <Link className="header-logo" to={"/"}>
@@ -28,7 +36,9 @@ export const Header = () => {
             <Link to={"/login"}>Login</Link>
           </li>
           <li className="nav-link">
-            <Link to={"/logout"}>Logout</Link>
+            <Link onClick={onSubmit} to={"/logout"}>
+              Logout
+            </Link>
           </li>
           <li className="nav-link">
             <Link to={"/profile"}>Profile</Link>

@@ -1,14 +1,18 @@
 import { useForm } from "react-hook-form";
+import { handleAuth } from "../../hooks/fetch-data-hooks";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import "./register.css";
-import { toast, ToastContainer } from "react-toastify";
-
-import "react-toastify/dist/ReactToastify.css";
 
 export const Register = () => {
   const { register, handleSubmit, watch } = useForm();
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
-    console.log(data);
+    handleAuth(data, "register");
+    navigate("/");
   };
+
   const onError = (error) => {
     const errors = Object.values(error).map((er) => er.message);
     errors.map((err) => toast.error(err));
@@ -56,7 +60,6 @@ export const Register = () => {
           <button className="form-element btn">Submit</button>
         </form>
       </div>
-      <ToastContainer />
     </section>
   );
 };
