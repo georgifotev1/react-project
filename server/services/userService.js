@@ -28,7 +28,7 @@ function parseToken(token) {
   return jwt.verify(token, secret);
 }
 
-async function register(username, email, password) {
+async function register(email, username, password) {
   const existingEmail = await User.findOne({ email }).collation({
     locale: "en",
     strength: 2,
@@ -45,8 +45,8 @@ async function register(username, email, password) {
   }
 
   const user = await User.create({
-    username,
     email,
+    username,
     hashedPassword: await bcrypt.hash(password, 10),
   });
 
@@ -61,7 +61,6 @@ async function login(email, password) {
   if (!user) {
     throw new Error("Incorrect email or password");
   }
-
   const match = await bcrypt.compare(password, user.hashedPassword);
   if (!match) {
     throw new Error("Incorrect email or password");

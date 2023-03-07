@@ -2,21 +2,33 @@ import { useForm } from "react-hook-form";
 import { handleAuth } from "../../hooks/fetch-data-hooks";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import "./register.css";
+import { setUserData } from "../../utils/userData";
 
 export const Register = () => {
   const { register, handleSubmit, watch } = useForm();
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    handleAuth(data, "register");
-    navigate("/");
+  const onSubmit = async (data) => {
+    try {
+      const response = await handleAuth(data, "register");
+      const userData = {
+        email: response.data.email,
+        accessToken: response.data.accessToken,
+        userId: response.data._id,
+      };
+      setUserData(userData);
+      navigate("/");
+    } catch (err) {
+      toast.error(err.response.data.message);
+      return;
+    }
   };
 
   const onError = (error) => {
     const errors = Object.values(error).map((er) => er.message);
     errors.map((err) => toast.error(err));
   };
+
   return (
     <section className="section auth-section">
       <div className="auth-section-card">
